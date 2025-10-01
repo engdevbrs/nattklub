@@ -52,13 +52,13 @@ function App() {
       <section id="inicio" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4">
         {/* Background con parallax */}
         <div
-          className="absolute inset-0 z-0 transition-transform duration-300"
+          className="absolute inset-0 z-0 will-change-transform"
           style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920")',
+            backgroundImage: 'url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920&q=75&fm=webp&auto=format")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             filter: 'brightness(0.35)',
-            transform: `translateY(${scrollY * 0.5}px)`
+            transform: `translate3d(0, ${scrollY * 0.5}px, 0)`
           }}
         />
 
@@ -217,7 +217,8 @@ function App() {
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-br from-[#FF2D55]/20 to-[#8B5CF6]/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
               <img
-                src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800"
+                src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=75&fm=webp&auto=format"
+                loading="lazy"
                 alt="Amigos celebrando"
                 className="relative w-full h-auto rounded-3xl shadow-2xl group-hover:scale-[1.02] transition-transform duration-500"
               />
@@ -308,7 +309,7 @@ function App() {
       }}>
         <div className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920")',
+            backgroundImage: 'url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920&q=75&fm=webp&auto=format")',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
@@ -609,16 +610,17 @@ function App() {
 
             <div className="grid grid-cols-2 gap-4">
               {[
-                'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400',
-                'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400',
-                'https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?w=400',
-                'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400'
+                'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=75&fm=webp&auto=format',
+                'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&q=75&fm=webp&auto=format',
+                'https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=400&q=75&fm=webp&auto=format',
+                'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&q=75&fm=webp&auto=format'
               ].map((src, idx) => (
                 <div key={idx} className="relative group overflow-hidden rounded-2xl">
                   <div className="absolute inset-0 bg-gradient-to-t from-[#FF2D55]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
                   <img
                     src={src}
                     alt={`Vida nocturna ${idx + 1}`}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
@@ -791,8 +793,9 @@ function App() {
         {/* Background con parallax */}
         <div className="absolute inset-0 opacity-5">
           <img
-            src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=1920"
+            src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=1920&q=75&fm=webp&auto=format"
             alt="Background"
+            loading="lazy"
             className="w-full h-full object-cover"
           />
         </div>
@@ -912,7 +915,7 @@ function App() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#1A0520] to-[#0A0A0A]"></div>
         <div className="absolute inset-0 opacity-10"
           style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920")',
+            backgroundImage: 'url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920&q=75&fm=webp&auto=format")',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
