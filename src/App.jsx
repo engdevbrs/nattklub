@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Music, Users, Shield, MapPin, TrendingUp, Sparkles, Target, Globe, Lightbulb, Check, ArrowRight, Calendar, Award, Zap } from 'lucide-react';
+import { ChevronDown, Music, Users, Shield, MapPin, TrendingUp, Sparkles, Target, Globe, Lightbulb, Check, ArrowRight, Calendar, Award, Zap, Rocket } from 'lucide-react';
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
@@ -448,89 +448,98 @@ function App() {
       </section>
 
       {/* Barra Divisoria Roja */}
-      <div className="h-2 bg-[#FF2D55]"></div>
+      <div className="h-2 bg-gradient-to-r from-[#FF2D55] via-[#EC4899] to-[#8B5CF6] animate-gradient"></div>
 
       {/* Solución */}
-      <section id="solución" className="py-32 px-6 lg:px-12 bg-[#0A0A0A] relative">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl sm:text-6xl font-['Orbitron'] font-black tracking-wider mb-16 text-[#FF2D55]">
-            SOLUCION
-          </h2>
+      <section id="solución" className="py-32 px-6 lg:px-12 bg-gradient-to-b from-[#0A0A0A] to-[#0A0520] relative overflow-hidden">
+        {/* Efectos de fondo */}
+        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-[#FF2D55]/10 rounded-full filter blur-[120px]"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-[#8B5CF6]/10 rounded-full filter blur-[120px]"></div>
 
-          <div className="grid md:grid-cols-3 gap-16 mb-16">
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-4 py-2 bg-[#FF2D55]/10 border border-[#FF2D55]/30 rounded-full mb-6 backdrop-blur-sm">
+              <Lightbulb className="w-4 h-4 text-[#FF2D55] mr-2" />
+              <span className="text-xs tracking-[0.2em] text-gray-300 font-light">LA RESPUESTA</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-['Orbitron'] font-black tracking-wider mb-6">
+              <span className="text-[#FF2D55]">SOLUCIÓN</span>
+            </h2>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+              Una plataforma completa que conecta, personaliza y transforma la experiencia nocturna
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             {/* Recomendaciones personalizadas */}
-            <div>
-              <h3 className="text-2xl font-bold mb-6 text-white">Recomendaciones personalizadas</h3>
-              <ul className="space-y-3 text-sm text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-[#FF2D55] mr-2">•</span>
-                  <span>Basadas en tus gustos musicales (conectado a Spotify)</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#FF2D55] mr-2">•</span>
-                  <span>Intereses sociales</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#FF2D55] mr-2">•</span>
-                  <span>Intereses culturales</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#FF2D55] mr-2">•</span>
-                  <span>Ubicación y tendencias locales</span>
-                </li>
-              </ul>
-              <p className="text-sm text-gray-400 italic mt-6">
-                "No más recomendaciones genéricas. Solo planes hechos para ti."
-              </p>
-            </div>
+            {[
+              {
+                title: 'Recomendaciones personalizadas',
+                icon: Music,
+                items: [
+                  'Basadas en tus gustos musicales (conectado a Spotify)',
+                  'Intereses sociales',
+                  'Intereses culturales',
+                  'Ubicación y tendencias locales'
+                ],
+                quote: 'No más recomendaciones genéricas. Solo planes hechos para ti.',
+                gradient: 'from-[#FF2D55]/10 to-[#EC4899]/10',
+                iconBg: 'from-[#FF2D55]/20 to-[#EC4899]/20'
+              },
+              {
+                title: 'Conexión entre personas reales',
+                icon: Users,
+                items: [
+                  'Match musical: conectamos personas con intereses similares',
+                  'Perfiles verificados: experiencia segura y confiable',
+                  'Eventos exclusivos: espacios para conocer gente nueva en ambientes controlados'
+                ],
+                quote: 'Conocer gente ya no es casualidad. Es conexión real.',
+                gradient: 'from-[#EC4899]/10 to-[#8B5CF6]/10',
+                iconBg: 'from-[#EC4899]/20 to-[#8B5CF6]/20'
+              },
+              {
+                title: 'Experiencia nocturna gamificada y segura',
+                icon: Shield,
+                items: [
+                  'Botón de S.O.S integrado en cada perfil',
+                  'Sistema de puntos y beneficios por niveles de participación',
+                  'Tours nocturnos personalizados por ciudad',
+                  'Eventos co-creados con marcas y locales'
+                ],
+                quote: 'Vivir la noche nunca fue tan divertido, seguro y emocionante.',
+                gradient: 'from-[#8B5CF6]/10 to-[#FF2D55]/10',
+                iconBg: 'from-[#8B5CF6]/20 to-[#FF2D55]/20'
+              }
+            ].map((solution, idx) => (
+              <div key={idx} className={`group bg-gradient-to-br ${solution.gradient} backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover-lift transition-all duration-300 hover:border-[#FF2D55]/50`}>
+                {/* Icon */}
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${solution.iconBg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <solution.icon className="text-[#FF2D55]" size={32} />
+                </div>
 
-            {/* Conexión entre personas reales */}
-            <div>
-              <h3 className="text-2xl font-bold mb-6 text-white">Conexión entre personas reales</h3>
-              <ul className="space-y-3 text-sm text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-[#FF2D55] mr-2">•</span>
-                  <span>Match musical: conectamos personas con intereses similares</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#FF2D55] mr-2">•</span>
-                  <span>Perfiles verificados: experiencia segura y confiable</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#FF2D55] mr-2">•</span>
-                  <span>Eventos exclusivos: espacios para conocer gente nueva en ambientes controlados</span>
-                </li>
-              </ul>
-              <p className="text-sm text-gray-400 italic mt-6">
-                "Conocer gente ya no es casualidad. Es conexión real."
-              </p>
-            </div>
+                {/* Title */}
+                <h3 className="text-xl font-['Orbitron'] font-bold mb-6 text-white leading-tight">{solution.title}</h3>
 
-            {/* Experiencia nocturna gamificada y segura */}
-            <div>
-              <h3 className="text-2xl font-bold mb-6 text-white">Experiencia nocturna gamificada y segura</h3>
-              <ul className="space-y-3 text-sm text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-[#FF2D55] mr-2">•</span>
-                  <span>Botón de S.O.S integrado en cada perfil</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#FF2D55] mr-2">•</span>
-                  <span>Sistema de puntos y beneficios por niveles de participación</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#FF2D55] mr-2">•</span>
-                  <span>Tours nocturnos personalizados por ciudad</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#FF2D55] mr-2">•</span>
-                  <span>Eventos co-creados con marcas y locales</span>
-                </li>
-              </ul>
-              <p className="text-sm text-gray-400 italic mt-6">
-                "Vivir la noche nunca fue tan divertido, seguro y emocionante."
-              </p>
-            </div>
+                {/* List */}
+                <ul className="space-y-3 mb-6">
+                  {solution.items.map((item, i) => (
+                    <li key={i} className="flex items-start">
+                      <Check className="w-4 h-4 text-[#FF2D55] mr-3 mt-1 flex-shrink-0" />
+                      <span className="text-sm text-gray-300 leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Quote */}
+                <div className="pt-6 border-t border-white/10">
+                  <p className="text-sm text-gray-400 italic">
+                    {solution.quote}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -620,51 +629,111 @@ function App() {
       </section>
 
       {/* Modelo de Negocio */}
-      <section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-black text-center mb-16">
-            MODELO DE <span className="text-red-500">NEGOCIO</span>
-          </h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-32 px-6 lg:px-12 bg-gradient-to-b from-[#0A0520] to-[#0A0A0A] relative overflow-hidden">
+        {/* Efectos de fondo */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#8B5CF6]/10 rounded-full filter blur-[120px]"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#FF2D55]/10 rounded-full filter blur-[120px]"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-4 py-2 bg-[#FF2D55]/10 border border-[#FF2D55]/30 rounded-full mb-6 backdrop-blur-sm">
+              <Zap className="w-4 h-4 text-[#FF2D55] mr-2" />
+              <span className="text-xs tracking-[0.2em] text-gray-300 font-light">MONETIZACIÓN</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-['Orbitron'] font-black tracking-wider mb-6">
+              MODELO DE <span className="text-[#FF2D55]">NEGOCIO</span>
+            </h2>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+              Múltiples fuentes de ingreso para asegurar sostenibilidad y escalabilidad
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
             {[
-              { icon: Zap, title: 'Freemium', desc: 'Funciones básicas gratuitas, premium pagado con características avanzadas.' },
-              { icon: TrendingUp, title: 'Publicidad Local', desc: 'Anuncios dirigidos de bares, discotecas y eventos específicos.' },
-              { icon: Award, title: 'Patrocinios', desc: 'Alianzas con marcas para activaciones hiperlocales y conexión directa.' },
-              { icon: Calendar, title: 'Comisiones por Entradas', desc: 'Porcentaje por venta de entradas a eventos exclusivos.' },
-              { icon: TrendingUp, title: 'Datos y Análisis', desc: 'Insights de tendencias nocturnas para locales y marcas.' }
+              { icon: Zap, title: 'Freemium', desc: 'Funciones básicas gratuitas, premium pagado con características avanzadas.', color: '#FF2D55' },
+              { icon: TrendingUp, title: 'Publicidad Local', desc: 'Anuncios dirigidos de bares, discotecas y eventos específicos.', color: '#8B5CF6' },
+              { icon: Award, title: 'Patrocinios', desc: 'Alianzas con marcas para activaciones hiperlocales y conexión directa.', color: '#EC4899' },
+              { icon: Calendar, title: 'Comisiones por Entradas', desc: 'Porcentaje por venta de entradas a eventos exclusivos.', color: '#FF2D55' },
+              { icon: TrendingUp, title: 'Datos y Análisis', desc: 'Insights de tendencias nocturnas para locales y marcas.', color: '#8B5CF6' }
             ].map((item, idx) => (
-              <div key={idx} className="bg-gray-800/50 p-6 rounded-lg border border-red-900/30 hover:border-red-500 transition-all duration-300 group">
-                <item.icon className="text-red-500 mb-4 group-hover:scale-110 transition-transform" size={40} />
-                <h4 className="text-xl font-bold mb-3">{item.title}</h4>
-                <p className="text-gray-400">{item.desc}</p>
+              <div key={idx} className="group bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover-lift transition-all duration-300 hover:border-[#FF2D55]/50">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FF2D55]/20 to-[#8B5CF6]/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className="text-[#FF2D55]" size={32} />
+                </div>
+                <h4 className="text-xl font-['Orbitron'] font-bold mb-3 text-white">{item.title}</h4>
+                <p className="text-gray-400 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
 
-          {/* Estrategia de Monetización */}
-          <div className="mt-20">
-            <h3 className="text-4xl font-black text-center mb-12">
-              ESTRATEGIA DE <span className="text-red-500">MONETIZACIÓN</span>
-            </h3>
-            
-            <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-red-500 via-purple-500 to-pink-500" />
-              
-              <div className="space-y-16">
+          {/* Estrategia de Monetización - Timeline */}
+          <div className="mt-32">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center px-4 py-2 bg-[#8B5CF6]/10 border border-[#8B5CF6]/30 rounded-full mb-6 backdrop-blur-sm">
+                <TrendingUp className="w-4 h-4 text-[#8B5CF6] mr-2" />
+                <span className="text-xs tracking-[0.2em] text-gray-300 font-light">ROADMAP</span>
+              </div>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-['Orbitron'] font-black tracking-wider mb-6">
+                ESTRATEGIA DE <span className="text-[#8B5CF6]">MONETIZACIÓN</span>
+              </h3>
+            </div>
+
+            <div className="relative max-w-5xl mx-auto">
+              {/* Línea vertical central - solo visible en desktop */}
+              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#FF2D55] via-[#8B5CF6] to-[#EC4899]" />
+
+              <div className="space-y-12">
                 {[
-                  { phase: 'FASE 1', title: 'Validación y crecimiento', time: '0-6 meses', desc: 'Crecer en usuarios, locales activos y visibilidad.' },
-                  { phase: 'FASE 2', title: 'Consolidación', time: '6-12 meses', desc: 'Posicionar a Nattklub como herramienta clave para los locales.' },
-                  { phase: 'FASE 3', title: 'Escalamiento', time: '12+ meses', desc: 'Modelo SaaS activo + expansión a otras comunas.' }
+                  {
+                    phase: 'FASE 1',
+                    title: 'Validación y crecimiento',
+                    time: '0-6 meses',
+                    desc: 'Crecer en usuarios, locales activos y visibilidad.',
+                    icon: Rocket,
+                    color: '#FF2D55'
+                  },
+                  {
+                    phase: 'FASE 2',
+                    title: 'Consolidación',
+                    time: '6-12 meses',
+                    desc: 'Posicionar a Nattklub como herramienta clave para los locales.',
+                    icon: Target,
+                    color: '#8B5CF6'
+                  },
+                  {
+                    phase: 'FASE 3',
+                    title: 'Escalamiento',
+                    time: '12+ meses',
+                    desc: 'Modelo SaaS activo + expansión a otras comunas.',
+                    icon: Globe,
+                    color: '#EC4899'
+                  }
                 ].map((item, idx) => (
-                  <div key={idx} className={`relative ${idx % 2 === 0 ? 'md:pr-1/2' : 'md:pl-1/2 md:ml-auto'} md:w-1/2`}>
-                    <div className="bg-gradient-to-br from-red-900/30 to-purple-900/30 p-6 rounded-lg border border-red-500/30">
-                      <span className="text-red-500 font-bold text-sm">{item.phase}</span>
-                      <h4 className="text-2xl font-bold mt-2 mb-2">{item.title}</h4>
-                      <p className="text-gray-400 mb-2">{item.time}</p>
-                      <p className="text-gray-300">{item.desc}</p>
+                  <div key={idx} className={`relative flex items-center ${idx % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
+                    {/* Punto en la línea - solo visible en desktop */}
+                    <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full border-4 border-[#0A0A0A] z-10"
+                      style={{ backgroundColor: item.color }}
+                    />
+
+                    {/* Card */}
+                    <div className={`w-full md:w-5/12 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover-lift group hover:border-[${item.color}]/50 transition-all duration-300`}>
+                      <div className="flex items-center mb-4">
+                        <div className="w-12 h-12 rounded-xl flex items-center justify-center mr-4"
+                          style={{ background: `linear-gradient(135deg, ${item.color}30, ${item.color}10)` }}
+                        >
+                          <item.icon className="w-6 h-6" style={{ color: item.color }} />
+                        </div>
+                        <span className="text-sm font-['Orbitron'] font-bold tracking-wider px-3 py-1 rounded-full"
+                          style={{ backgroundColor: `${item.color}20`, color: item.color }}
+                        >
+                          {item.phase}
+                        </span>
+                      </div>
+                      <h4 className="text-2xl font-['Orbitron'] font-bold mb-2 text-white">{item.title}</h4>
+                      <p className="text-sm text-gray-400 mb-4 font-semibold">{item.time}</p>
+                      <p className="text-gray-300 leading-relaxed">{item.desc}</p>
                     </div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-red-500 rounded-full border-4 border-black" />
                   </div>
                 ))}
               </div>
@@ -674,29 +743,43 @@ function App() {
       </section>
 
       {/* Partners Estratégicos */}
-      <section id="partners" className="py-20 px-4 bg-gradient-to-b from-gray-900 to-black">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-black text-center mb-16">
-            PARTNERS <span className="text-red-500">ESTRATÉGICOS</span>
-          </h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <section id="partners" className="py-32 px-6 lg:px-12 bg-gradient-to-b from-[#0A0A0A] to-[#0A0520] relative overflow-hidden">
+        {/* Efectos de fondo */}
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#EC4899]/10 rounded-full filter blur-[120px]"></div>
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#8B5CF6]/10 rounded-full filter blur-[120px]"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-4 py-2 bg-[#EC4899]/10 border border-[#EC4899]/30 rounded-full mb-6 backdrop-blur-sm">
+              <Users className="w-4 h-4 text-[#EC4899] mr-2" />
+              <span className="text-xs tracking-[0.2em] text-gray-300 font-light">ALIANZAS ESTRATÉGICAS</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-['Orbitron'] font-black tracking-wider mb-6">
+              PARTNERS <span className="text-[#EC4899]">ESTRATÉGICOS</span>
+            </h2>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+              Colaboraciones clave con líderes de la industria para maximizar el impacto
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: 'Uber / Cabify', desc: 'Movilidad segura nocturna' },
-              { name: 'Bumble / Tinder', desc: 'Conexiones sociales seguras' },
-              { name: 'Corona / Heineken', desc: 'Experiencias y eventos' },
-              { name: 'Red Bull', desc: 'Música y cultura urbana' },
-              { name: 'Spotify', desc: 'Integración musical' },
-              { name: 'McDonald\'s', desc: 'Activaciones post-fiesta' },
-              { name: 'Transbank', desc: 'Pagos y financiamiento' },
-              { name: 'Pronto Copec', desc: 'Puntos de encuentro' }
+              { name: 'Uber / Cabify', desc: 'Movilidad segura nocturna', icon: '🚗', gradient: 'from-[#FF2D55]/10 to-[#EC4899]/10' },
+              { name: 'Bumble / Tinder', desc: 'Conexiones sociales seguras', icon: '💕', gradient: 'from-[#EC4899]/10 to-[#8B5CF6]/10' },
+              { name: 'Corona / Heineken', desc: 'Experiencias y eventos', icon: '🍺', gradient: 'from-[#8B5CF6]/10 to-[#FF2D55]/10' },
+              { name: 'Red Bull', desc: 'Música y cultura urbana', icon: '⚡', gradient: 'from-[#FF2D55]/10 to-[#EC4899]/10' },
+              { name: 'Spotify', desc: 'Integración musical', icon: '🎵', gradient: 'from-[#EC4899]/10 to-[#8B5CF6]/10' },
+              { name: 'McDonald\'s', desc: 'Activaciones post-fiesta', icon: '🍔', gradient: 'from-[#8B5CF6]/10 to-[#FF2D55]/10' },
+              { name: 'Transbank', desc: 'Pagos y financiamiento', icon: '💳', gradient: 'from-[#FF2D55]/10 to-[#EC4899]/10' },
+              { name: 'Pronto Copec', desc: 'Puntos de encuentro', icon: '⛽', gradient: 'from-[#EC4899]/10 to-[#8B5CF6]/10' }
             ].map((partner, idx) => (
-              <div key={idx} className="bg-gray-800/30 p-6 rounded-lg border border-red-900/20 hover:border-red-500 transition-all duration-300 hover:transform hover:scale-105 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold">
-                  {partner.name.charAt(0)}
+              <div key={idx} className={`group bg-gradient-to-br ${partner.gradient} backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover-lift transition-all duration-300 hover:border-[#EC4899]/50 text-center`}>
+                <div className="w-20 h-20 bg-gradient-to-br from-[#FF2D55]/20 via-[#EC4899]/20 to-[#8B5CF6]/20 rounded-2xl mx-auto mb-4 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform duration-300">
+                  {partner.icon}
                 </div>
-                <h4 className="font-bold mb-2">{partner.name}</h4>
-                <p className="text-sm text-gray-400">{partner.desc}</p>
+                <h4 className="font-['Orbitron'] font-bold mb-2 text-white text-lg">{partner.name}</h4>
+                <p className="text-sm text-gray-400 leading-relaxed">{partner.desc}</p>
               </div>
             ))}
           </div>
@@ -704,34 +787,121 @@ function App() {
       </section>
 
       {/* Por qué Invertir */}
-      <section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <img 
-            src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=1920" 
+      <section className="py-32 px-6 lg:px-12 bg-gradient-to-b from-[#0A0520] to-[#0A0A0A] relative overflow-hidden">
+        {/* Background con parallax */}
+        <div className="absolute inset-0 opacity-5">
+          <img
+            src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=1920"
             alt="Background"
             className="w-full h-full object-cover"
           />
         </div>
-        
+
+        {/* Efectos de luz */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#FF2D55]/15 rounded-full filter blur-[120px] animate-pulse-glow"></div>
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#8B5CF6]/15 rounded-full filter blur-[120px] animate-pulse-glow" style={{ animationDelay: '1s' }}></div>
+
         <div className="max-w-7xl mx-auto relative z-10">
-          <h2 className="text-5xl font-black text-center mb-16">
-            ¿POR QUÉ INVERTIR EN <span className="text-red-500">NATTKLUB?</span>
-          </h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-4 py-2 bg-[#FF2D55]/10 border border-[#FF2D55]/30 rounded-full mb-6 backdrop-blur-sm animate-fade-in-up">
+              <TrendingUp className="w-4 h-4 text-[#FF2D55] mr-2" />
+              <span className="text-xs tracking-[0.2em] text-gray-300 font-light">OPORTUNIDAD DE INVERSIÓN</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-['Orbitron'] font-black tracking-wider mb-6 animate-fade-in-up">
+              ¿POR QUÉ INVERTIR EN <span className="text-[#FF2D55] animate-neon-pulse">NATTKLUB?</span>
+            </h2>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+              Una oportunidad única en el mercado de la vida nocturna latinoamericana
+            </p>
+          </div>
+
+          {/* Grid de razones */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {[
-              { icon: Users, title: 'Público joven y conectado', desc: '150M+ de jóvenes activos digitalmente en LATAM' },
-              { icon: Globe, title: 'Modelo escalable', desc: 'Replicable en toda Latinoamérica y el resto del mundo' },
-              { icon: Sparkles, title: 'Impacto social', desc: 'Transformación cultural de la vida nocturna' },
-              { icon: TrendingUp, title: 'Ingresos diversificados', desc: 'Múltiples fuentes de monetización recurrente' },
-              { icon: Lightbulb, title: 'Solución única', desc: 'Primera red social 100% dedicada a la vida nocturna' }
+              {
+                icon: Users,
+                title: 'Público joven y conectado',
+                desc: '150M+ de jóvenes activos digitalmente en LATAM',
+                stat: '150M+',
+                gradient: 'from-[#FF2D55]/10 to-[#EC4899]/10'
+              },
+              {
+                icon: Globe,
+                title: 'Modelo escalable',
+                desc: 'Replicable en toda Latinoamérica y el resto del mundo',
+                stat: '20+',
+                gradient: 'from-[#EC4899]/10 to-[#8B5CF6]/10'
+              },
+              {
+                icon: Sparkles,
+                title: 'Impacto social',
+                desc: 'Transformación cultural de la vida nocturna',
+                stat: '100%',
+                gradient: 'from-[#8B5CF6]/10 to-[#FF2D55]/10'
+              },
+              {
+                icon: TrendingUp,
+                title: 'Ingresos diversificados',
+                desc: 'Múltiples fuentes de monetización recurrente',
+                stat: '5+',
+                gradient: 'from-[#FF2D55]/10 to-[#EC4899]/10'
+              },
+              {
+                icon: Lightbulb,
+                title: 'Solución única',
+                desc: 'Primera red social 100% dedicada a la vida nocturna',
+                stat: '#1',
+                gradient: 'from-[#EC4899]/10 to-[#8B5CF6]/10'
+              },
+              {
+                icon: Rocket,
+                title: 'Crecimiento acelerado',
+                desc: 'Estrategia clara de expansión y captación de usuarios',
+                stat: '10x',
+                gradient: 'from-[#8B5CF6]/10 to-[#FF2D55]/10'
+              }
             ].map((item, idx) => (
-              <div key={idx} className="bg-black/70 backdrop-blur-sm p-8 rounded-lg border border-red-500/30 hover:border-red-500 transition-all duration-300">
-                <item.icon className="text-red-500 mb-4" size={48} />
-                <h4 className="text-xl font-bold mb-3">{item.title}</h4>
-                <p className="text-gray-400">{item.desc}</p>
+              <div key={idx} className={`group bg-gradient-to-br ${item.gradient} backdrop-blur-md border border-white/10 rounded-3xl p-8 hover-lift transition-all duration-300 hover:border-[#FF2D55]/50 animate-fade-in-up`}
+                style={{ animationDelay: `${idx * 0.1}s` }}
+              >
+                <div className="flex items-start justify-between mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FF2D55]/20 to-[#8B5CF6]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <item.icon className="text-[#FF2D55]" size={28} />
+                  </div>
+                  <span className="text-3xl font-['Orbitron'] font-black text-white/20 group-hover:text-[#FF2D55]/30 transition-colors duration-300">
+                    {item.stat}
+                  </span>
+                </div>
+                <h4 className="text-xl font-['Orbitron'] font-bold mb-3 text-white">{item.title}</h4>
+                <p className="text-gray-400 leading-relaxed">{item.desc}</p>
               </div>
             ))}
+          </div>
+
+          {/* CTA Final destacado */}
+          <div className="bg-gradient-to-br from-[#FF2D55]/20 via-[#EC4899]/10 to-[#8B5CF6]/20 backdrop-blur-md border-2 border-[#FF2D55]/30 rounded-3xl p-12 text-center hover-lift animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+            <h3 className="text-3xl sm:text-4xl font-['Orbitron'] font-black mb-4 text-white">
+              ÚNETE A LA <span className="text-[#FF2D55]">REVOLUCIÓN NOCTURNA</span>
+            </h3>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+              Nattklub no solo busca apoyo financiero, sino también <span className="text-white font-bold">aliados visionarios</span> que
+              crean en la innovación cultural y tecnológica de Latinoamérica.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex items-center px-6 py-3 bg-white/5 border border-white/20 rounded-full">
+                <span className="text-2xl font-['Orbitron'] font-black text-[#FF2D55] mr-2">57K</span>
+                <span className="text-sm text-gray-400">usuarios objetivo</span>
+              </div>
+              <div className="flex items-center px-6 py-3 bg-white/5 border border-white/20 rounded-full">
+                <span className="text-2xl font-['Orbitron'] font-black text-[#8B5CF6] mr-2">6</span>
+                <span className="text-sm text-gray-400">meses al lanzamiento</span>
+              </div>
+              <div className="flex items-center px-6 py-3 bg-white/5 border border-white/20 rounded-full">
+                <span className="text-2xl font-['Orbitron'] font-black text-[#EC4899] mr-2">5+</span>
+                <span className="text-sm text-gray-400">fuentes de ingreso</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
