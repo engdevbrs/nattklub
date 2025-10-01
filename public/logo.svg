@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
+  <defs>
+    <!-- Gradiente que fluye por toda la forma NK -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF2D55"/>
+      <stop offset="50%" style="stop-color:#EC4899"/>
+      <stop offset="100%" style="stop-color:#8B5CF6"/>
+    </linearGradient>
+
+    <!-- Gradiente para el signo igual -->
+    <linearGradient id="equalsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF2D55"/>
+      <stop offset="50%" style="stop-color:#EC4899"/>
+      <stop offset="100%" style="stop-color:#8B5CF6"/>
+    </linearGradient>
+
+    <!-- Glow sutil -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- NK integrado y legible -->
+  <g filter="url(#glow)">
+    <!-- Letra N: línea izquierda vertical + diagonal ascendente + línea derecha vertical -->
+    <path
+      d="M 15 20 L 15 75
+         M 15 20 L 60 75
+         M 60 20 L 60 75"
+      stroke="url(#textGrad)"
+      stroke-width="8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill="none"/>
+
+    <!-- Letra K: usa la misma línea vertical derecha de N + dos diagonales -->
+    <path
+      d="M 60 47 L 105 20
+         M 60 47 L 105 75"
+      stroke="url(#textGrad)"
+      stroke-width="8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill="none"/>
+  </g>
+
+  <!-- Signo igual con gradiente -->
+  <g filter="url(#glow)">
+    <rect x="125" y="38" width="35" height="8" rx="4" fill="url(#equalsGrad)"/>
+    <rect x="125" y="54" width="35" height="8" rx="4" fill="url(#equalsGrad)"/>
+  </g>
+</svg>
